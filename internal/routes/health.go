@@ -1,8 +1,11 @@
 package routes
 
-import "net/http"
+import (
+	"backend/internal/utils"
+	"net/http"
+)
 
 func handelHealth(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("OK"))
+
+	utils.JSON(w, http.StatusOK, "Api is Running Successfully!!", true, nil)
 }
