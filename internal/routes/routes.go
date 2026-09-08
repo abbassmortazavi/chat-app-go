@@ -1,7 +1,11 @@
 package routes
 
-import "net/http"
+import (
+	"net/http"
+)
 
-func RegisterRoutes(mux *http.ServeMux) {
+func RegisterRoutes() *http.ServeMux {
+	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", handelHealth)
+	return mux
 }
