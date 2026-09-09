@@ -22,10 +22,11 @@ func main() {
 
 	mux := routes.RegisterRoutes()
 	middlewareMux := middlewares.LoggingMiddleware(mux)
+	middlewareCOrse := middlewares.CorsMiddleware(middlewareMux)
 
 	server := &http.Server{
 		Addr:    cfg.HttpServer.HttpAddress,
-		Handler: middlewareMux,
+		Handler: middlewareCOrse,
 	}
 
 	serverErrCh := make(chan error, 1)
@@ -63,4 +64,4 @@ func shutdown(server *http.Server) {
 	log.Println("Server gracefully stopped")
 }
 
-//8 must watch
+//11 must watch
