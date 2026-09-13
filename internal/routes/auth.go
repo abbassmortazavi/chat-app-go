@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"backend/internal/models"
 	"backend/internal/utils"
 	"encoding/json"
 	"net/http"
@@ -40,5 +41,5 @@ func handelRegister(w http.ResponseWriter, r *http.Request) {
 		utils.JSON(w, http.StatusInternalServerError, err.Error(), false, nil)
 		return
 	}
-	utils.JSON(w, http.StatusCreated, user, true, nil)
+	utils.JSON(w, http.StatusCreated, "User Register Successfully", true, user)
 }
